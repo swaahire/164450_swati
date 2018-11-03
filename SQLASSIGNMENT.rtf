@@ -1,0 +1,989 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fswiss\fcharset0 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue0;}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\cf1\f0\fs24\lang9\par
+ \par
+\b\fs26 1) Select Queries\par
+ \b0 1. Display all departments from department table. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22  SELECT DNAME FROM DEPT;\par
+DNAME\par
+--------------\par
+ACCOUNTING\par
+RESEARCH\par
+SALES\par
+OPERATIONS\cf1\f0\fs24  \par
+
+\pard\fs26 2. Display all employees from employee table. \par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP;\par
+ENAME\par
+----------\par
+SMITH\par
+ALLEN\par
+WARD\par
+JONES\par
+MARTIN\par
+BLAKE\par
+CLARK\par
+SCOTT\par
+KING\par
+TURNER\par
+ADAMS\par
+JAMES\par
+FORD\par
+MILLER\cf1\f0\fs24  \par
+
+\pard\fs26 3. Select the employee in department 30. \cf0\f1\fs22\par
+
+\pard\sa200\sl276\slmult1  SELECT ENAME FROM EMP WHERE DEPTNO=30;\par
+ENAME\par
+----------\par
+ALLEN\par
+WARD\par
+MARTIN\par
+BLAKE\par
+TURNER\par
+JAMES\par
+
+\pard\cf1\f0\fs24  \par
+\fs26 4. List the names, numbers and departmentno of all clerks. \cf0\f1\fs22\par
+
+\pard\sa200\sl276\slmult1 SELECT ENAME,EMPNUM,DEPTNO FROM EMP WHERE JOB='CLERK';\par
+\par
+ENAME          EMPNUM     DEPTNO\par
+---------- ---------- ----------\par
+SMITH            7369         20\par
+ADAMS            7876         20\par
+JAMES            7900         30\par
+MILLER           7934         10\par
+
+\pard\cf1\f0\fs24\par
+ \par
+\fs26 5. Find the depart numbers and the name of employee of all dept with Deptno greater or equal to 20. \cf0\f1\fs22\par
+
+\pard\sa200\sl276\slmult1 SELECT DEPTNO,ENAME FROM EMP WHERE DEPTNO>=20;\par
+    DEPTNO ENAME\par
+---------- ----------\par
+        20 SMITH\par
+        30 ALLEN\par
+        30 WARD\par
+        20 JONES\par
+        30 MARTIN\par
+        30 BLAKE\par
+        20 SCOTT\par
+        30 TURNER\par
+        20 ADAMS\par
+        30 JAMES\par
+        20 FORD\par
+
+\pard\cf1\f0\fs26 6. Find the employees whose commission is greater than their salary. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP WHERE COMM>SAL;\par
+ENAME\par
+----------\par
+MARTIN\cf1\f0\fs24\par
+
+\pard\fs26 7. Find the employees whose commission is greater than 60 percent of their salary. \par
+SELECT ENAME FROM EMP WHERE COMM>(SAL*0.6);\par
+\par
+ENAME\par
+----------\par
+MARTIN\par
+\fs24\par
+\fs26 8. Find the employee whose commission is greater than 50 percent of their salary. \par
+SELECT ENAME FROM EMP WHERE COMM>(SAL*0.5);\par
+\par
+ENAME\par
+----------\par
+MARTIN\fs24\par
+\par
+\fs26 9. List the name, job and salary of all employees in dept 20 who earn more than 2000 \par
+\par
+ SELECT ENAME,JOB,SAL FROM EMP WHERE DEPTNO=20 AND SAL>2000;\par
+ENAME      JOB              SAL\par
+---------- --------- ----------\par
+JONES      MANAGER         2975\par
+SCOTT      ANALYST         3000\par
+FORD       ANALYST         3000\par
+\fs24\par
+ \par
+\fs26 10. Find all salesmen in dept 30 whose salary is greater than or equal to Rs. 1500. \par
+\par
+ SELECT ENAME FROM EMP WHERE DEPTNO=30 AND SAL>=1500 AND JOB='SALESMAN';\par
+\par
+ENAME\par
+----------\par
+ALLEN\par
+TURNER\par
+\fs24\par
+ \par
+\fs26 11. Find all the employees whose job is either a president or manager. \par
+ SELECT ENAME FROM EMP WHERE JOB ='PRESIDENT' OR JOB='MANAGER';\par
+\par
+ENAME\par
+----------\par
+JONES\par
+BLAKE\par
+CLARK\par
+KING\par
+\fs24  \par
+\fs26 12. Find all managers who are not in dept 30. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP WHERE JOB='MANAGER' AND DEPTNO !=30;\par
+ENAME\par
+----------\par
+JONES\par
+CLARK\cf1\f0\fs24\par
+
+\pard\fs26 13. Find the details of all managers and clerks in dept 10. \par
+SELECT * FROM EMP WHERE (JOB='MANAGER' OR JOB='CLERK') AND DEPTNO=10;\par
+\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450\par
+        10\par
+\par
+      7934 MILLER     CLERK           7782 23-JAN-82       1300\par
+        10\par
+\par
+14. Find the details of all manager (in any dept) and all clerks in dept 10 \par
+
+\pard\sa200\sl276\slmult1\tx8820       SELECT * FROM EMP WHERE JOB='MANAGER' OR JOB='CLERK' AND DEPTNO=10;\par
+
+\pard\sa200\sl276\slmult1     EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7566 JONES      MANAGER         7839 02-APR-81       2975\par
+        20\par
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850\par
+        30\par
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450\par
+        10\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7934 MILLER     CLERK           7782 23-JAN-82       1300\par
+        10\fs24\par
+
+\pard  \par
+\fs26 15. Find the details of all managers in dept 10 and all clerks in dept 20. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT * FROM EMP WHERE (DEPTNO=10 AND JOB='MANAGER') OR (DEPTNO=20 AND JOB='CLERK');\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7369 SMITH      CLERK           7902 17-DEC-80        800\par
+        20\par
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450\par
+        10\par
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100\par
+        20\cf1\f0\fs24\par
+
+\pard\fs26 16. Find all employees who are neither clerks nor manager but whose salary is greater than or equal to Rs. 2000. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP WHERE (JOB!='CLERK' AND JOB!='MANAGER') AND SAL>=2000; \par
+ENAME\par
+----------\par
+SCOTT\par
+KING\par
+FORD\cf1\f0\fs24\par
+
+\pard\fs26 17. Find the employees who earns between Rs. 1200 and Rs.1400. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP WHERE SAL BETWEEN 1200 AND 1400;\par
+ENAME\par
+----------\par
+WARD\par
+MARTIN\par
+MILLER\cf1\f0\fs24  \par
+
+\pard\fs26 18. Find the employees who are clerks, analysts or salesman. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP WHERE JOB='CLERK' OR JOB='ANALYST' OR JOB='SALESMAN';\par
+ENAME\par
+----------\par
+SMITH\par
+ALLEN\par
+WARD\par
+MARTIN\par
+SCOTT\par
+TURNER\par
+ADAMS\par
+JAMES\par
+FORD\par
+MILLER\cf1\f0\fs24\par
+
+\pard\fs26 19. Find the employees who are not clerks, analyst or salesman. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP WHERE (JOB!='CLERK' AND JOB!='ANALYST' AND JOB!='SALESMAN');\par
+ENAME\par
+----------\par
+JONES\par
+BLAKE\par
+CLARK\par
+KING\cf1\f0\fs24\par
+
+\pard\fs26 20. Find the employees who do not receive a commission i.e. commission is NULL. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22  SELECT ENAME FROM EMP WHERE COMM IS NULL;\par
+ENAME\par
+----------\par
+SMITH\par
+JONES\par
+BLAKE\par
+CLARK\par
+SCOTT\par
+KING\par
+ADAMS\par
+JAMES\par
+FORD\par
+MILLER\cf1\f0\fs24  \par
+
+\pard\fs26 21. Find the employee whose commission is Rs. 0. \par
+\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 SELECT ENAME FROM EMP WHERE COMM=0;\par
+ENAME\par
+----------\par
+TURNER\cf1\f0\fs24\par
+
+\pard\fs26 22. Find the different jobs of the employees receiving commission. \par
+SELECT JOB FROM EMP WHERE COMM IS NOT NULL AND COMM!=0;\par
+\par
+JOB\par
+---------\par
+SALESMAN\par
+SALESMAN\par
+SALESMAN\par
+\par
+\fs24\par
+ \par
+\fs26 23. Find all employees who do not receive a commission or whose Commission is less than Rs. 100. \par
+SELECT JOB FROM EMP WHERE COMM IS NOT NULL OR COMM<100;\par
+\par
+JOB\par
+---------\par
+SALESMAN\par
+SALESMAN\par
+SALESMAN\par
+SALESMAN\par
+\fs24\par
+ \par
+\fs26 24. The employees who not receiving commission are entailed to Rs. 250, Show the net earnings of all employees. (find about \b nvl() ) \b0\par
+\par
+SELECT ENAME,SAL+NVL(NULL,250) "NRE" FROM EMP WHERE COMM IS NULL;\par
+\par
+ENAME             NRE\par
+---------- ----------\par
+SMITH            1050\par
+JONES            3225\par
+BLAKE            3100\par
+CLARK            2700\par
+SCOTT            3250\par
+KING             5250\par
+ADAMS            1350\par
+JAMES            1200\par
+FORD             3250\par
+MILLER           1550\par
+\fs24\par
+ \par
+\fs26 25. Find all employees whose total earnings are greater than Rs. 2000. \par
+\par
+SELECT ENAME FROM EMP WHERE SAL>2000;\par
+\par
+ENAME\par
+----------\par
+JONES\par
+BLAKE\par
+CLARK\par
+SCOTT\par
+KING\par
+FORD\par
+\fs24\par
+ \par
+\fs26 26. Find all employees whose names begin with m. \par
+\par
+SELECT ENAME FROM EMP WHERE ENAME LIKE 'M%';\par
+\par
+ENAME\par
+----------\par
+MARTIN\par
+MILLER\par
+\fs24\par
+ \par
+\fs26 27. Find all employees whose names end with m. \par
+\par
+SELECT ENAME FROM EMP WHERE ENAME LIKE '%M';\par
+\par
+no rows selected\par
+\fs24\par
+ \par
+\fs26 28. Find all employees whose names contain the letter m. \par
+\par
+SELECT ENAME FROM EMP WHERE ENAME LIKE '%M%';\par
+\par
+ENAME\par
+----------\par
+SMITH\par
+MARTIN\par
+ADAMS\par
+JAMES\par
+MILLER\par
+\fs24\par
+ \par
+\fs26 29. Find the employees whose names are 5 characters long and end with n. \par
+\par
+SELECT ENAME FROM EMP WHERE ENAME LIKE '____N';\par
+\par
+ENAME\par
+----------\par
+ALLEN\par
+\fs24\par
+ \par
+\fs26 30. Find the employees who have the letter r as the third letter in their name. \par
+\par
+ SELECT ENAME FROM EMP WHERE ENAME LIKE '__R%';\par
+\par
+ENAME\par
+----------\par
+WARD\par
+MARTIN\par
+TURNER\par
+FORD\par
+\fs24\par
+\b\fs26 2) Numeric, Character & Date Function \par
+\b0 31. Find all employees hired in month of February (of any year). \par
+SELECT ENAME,HIREDATE FROM EMP WHERE EXTRACT(MONTH FROM HIREDATE)=2;\par
+\par
+ENAME      HIREDATE\par
+---------- ---------\par
+ALLEN      20-FEB-81\par
+WARD       22-FEB-81\par
+\fs24\par
+\fs26 32. Find all employees who were hired on the last day of the month. \par
+\par
+SELECT ENAME FROM EMP WHERE LAST_DAY(HIREDATE)=HIREDATE;\par
+\par
+no rows selected\par
+\fs24\par
+\fs26 33. Find the employees who were hired more than 12 years ago. \par
+\par
+ SELECT ENAME FROM EMP WHERE MONTHS_BETWEEN(SYSDATE,HIREDATE)>240;\par
+\par
+ENAME\par
+----------\par
+SMITH\par
+ALLEN\par
+WARD\par
+JONES\par
+MARTIN\par
+BLAKE\par
+CLARK\par
+SCOTT\par
+KING\par
+TURNER\par
+ADAMS\par
+JAMES\par
+FORD\par
+MILLER\par
+\fs24\par
+\fs26 34. Find the managers hired in the year 2007. \par
+ SELECT ENAME FROM EMP WHERE EXTRACT(YEAR FROM HIREDATE)=2007 AND JOB='MANAGER';\par
+\par
+no rows selected\par
+\fs24\par
+\fs26 35. Display the names and the jobs of all employees, separated by ','(comma). For example \fs24 (smith, clerk). \par
+\par
+\fs26   SELECT ENAME ||','|| JOB FROM EMP;\par
+\par
+ENAME||','||JOB\par
+--------------------\par
+SMITH,CLERK\par
+ALLEN,SALESMAN\par
+WARD,SALESMAN\par
+JONES,MANAGER\par
+MARTIN,SALESMAN\par
+BLAKE,MANAGER\par
+CLARK,MANAGER\par
+SCOTT,ANALYST\par
+KING,PRESIDENT\par
+TURNER,SALESMAN\par
+ADAMS,CLERK\par
+\par
+ENAME||','||JOB\par
+--------------------\par
+JAMES,CLERK\par
+FORD,ANALYST\par
+MILLER,CLERK\par
+\fs24\par
+\fs26 36. Display the names of all employees with the initial letter only in capitals. \par
+ SELECT initcap(ENAME) FROM EMP;\par
+\par
+INITCAP(EN\par
+----------\par
+Smith\par
+Allen\par
+Ward\par
+Jones\par
+Martin\par
+Blake\par
+Clark\par
+Scott\par
+King\par
+Turner\par
+Adams\par
+\par
+INITCAP(EN\par
+----------\par
+James\par
+Ford\par
+Miller\par
+\par
+\fs24\par
+\fs26 37. Display the names of all employees, right aligning them to 15 characters. \par
+SELECT ENAME,LPAD(ENAME, 15,' ') FROM EMP;\par
+\par
+ENAME      LPAD(ENAME,15,'')\par
+---------- ------------------------------------------------------------\par
+SMITH                SMITH\par
+ALLEN                ALLEN\par
+WARD                  WARD\par
+JONES                JONES\par
+MARTIN              MARTIN\par
+BLAKE                BLAKE\par
+CLARK                CLARK\par
+SCOTT                SCOTT\par
+KING                  KING\par
+TURNER              TURNER\par
+ADAMS                ADAMS\par
+\par
+ENAME      LPAD(ENAME,15,'')\par
+---------- ------------------------------------------------------------\par
+JAMES                JAMES\par
+FORD                  FORD\par
+MILLER              MILLER\par
+\fs24\par
+\fs26 38. Display the names of all employees, padding them to right up-to 15 characters with '-'. \par
+\par
+ SELECT ENAME,LPAD(ENAME, 15,'-') FROM EMP;\par
+\par
+ENAME      LPAD(ENAME,15,'-')\par
+---------- ------------------------------------------------------------\par
+SMITH      ----------SMITH\par
+ALLEN      ----------ALLEN\par
+WARD       -----------WARD\par
+JONES      ----------JONES\par
+MARTIN     ---------MARTIN\par
+BLAKE      ----------BLAKE\par
+CLARK      ----------CLARK\par
+SCOTT      ----------SCOTT\par
+KING       -----------KING\par
+TURNER     ---------TURNER\par
+ADAMS      ----------ADAMS\par
+\par
+ENAME      LPAD(ENAME,15,'-')\par
+---------- ------------------------------------------------------------\par
+JAMES      ----------JAMES\par
+FORD       -----------FORD\par
+MILLER     ---------MILLER\par
+\fs24\par
+\fs26 39. Display the length of the name of all employees. \par
+SELECT ENAME,LENGTH(ENAME) FROM EMP;\par
+\par
+ENAME      LENGTH(ENAME)\par
+---------- -------------\par
+SMITH                  5\par
+ALLEN                  5\par
+WARD                   4\par
+JONES                  5\par
+MARTIN                 6\par
+BLAKE                  5\par
+CLARK                  5\par
+SCOTT                  5\par
+KING                   4\par
+TURNER                 6\par
+ADAMS                  5\par
+\par
+ENAME      LENGTH(ENAME)\par
+---------- -------------\par
+JAMES                  5\par
+FORD                   4\par
+MILLER                 6\par
+\fs24\par
+\fs26 40. Display the names of all employees centering them with 20 characters. \par
+\par
+\par
+\fs24\par
+\fs26 41. Display the names of all employees without any leading 'a'. \par
+\par
+SELECT TRIM(LEADING 'A' FROM ENAME) FROM EMP;\par
+\par
+TRIM(LEADI\par
+----------\par
+SMITH\par
+LLEN\par
+WARD\par
+JONES\par
+MARTIN\par
+BLAKE\par
+CLARK\par
+SCOTT\par
+KING\par
+TURNER\par
+DAMS\par
+\par
+TRIM(LEADI\par
+----------\par
+JAMES\par
+FORD\par
+MILLER\par
+\fs24\par
+\fs26 42. Display the names of all employees without any trailing 'r'. \par
+\par
+ SELECT TRIM(TRAILING 'R' FROM ENAME) FROM EMP;\par
+\par
+TRIM(TRAIL\par
+----------\par
+SMITH\par
+ALLEN\par
+WARD\par
+JONES\par
+MARTIN\par
+BLAKE\par
+CLARK\par
+SCOTT\par
+KING\par
+TURNE\par
+ADAMS\par
+\par
+TRIM(TRAIL\par
+----------\par
+JAMES\par
+FORD\par
+MILLE\par
+\fs24\par
+\fs26 43. Show the first three characters of the names of all employees. \par
+\par
+SELECT SUBSTR(ENAME,1,3) FROM EMP;\par
+\par
+SUBSTR(ENAME\par
+------------\par
+SMI\par
+ALL\par
+WAR\par
+JON\par
+MAR\par
+BLA\par
+CLA\par
+SCO\par
+KIN\par
+TUR\par
+ADA\par
+\par
+SUBSTR(ENAME\par
+------------\par
+JAM\par
+FOR\par
+MIL\par
+\fs24\par
+\fs26 44. Show the last three characters of the names of all employees. \par
+\par
+SELECT SUBSTR(ENAME,-3) FROM EMP;\par
+\par
+SUBSTR(ENAME\par
+------------\par
+ITH\par
+LEN\par
+ARD\par
+NES\par
+TIN\par
+AKE\par
+ARK\par
+OTT\par
+ING\par
+NER\par
+AMS\par
+\par
+SUBSTR(ENAME\par
+------------\par
+MES\par
+ORD\par
+LER\par
+\fs24\par
+\fs26 45. Display the names of all employees replacing any 'a' with 'e'. \par
+\par
+SELECT REPLACE (ENAME,'A','E') FROM EMP;\par
+\par
+REPLACE(EN\par
+----------\par
+SMITH\par
+ELLEN\par
+WERD\par
+JONES\par
+MERTIN\par
+BLEKE\par
+CLERK\par
+SCOTT\par
+KING\par
+TURNER\par
+EDEMS\par
+\par
+REPLACE(EN\par
+----------\par
+JEMES\par
+FORD\par
+MILLER\par
+\fs24\par
+\fs26 46. Display the names of all employees and the position at which the string 'ar' occurs in the name. \par
+SELECT ENAME, INSTR(ENAME,'AR') FROM EMP;\par
+\par
+ENAME      INSTR(ENAME,'AR')\par
+---------- -----------------\par
+SMITH                      0\par
+ALLEN                      0\par
+WARD                       2\par
+JONES                      0\par
+MARTIN                     2\par
+BLAKE                      0\par
+CLARK                      3\par
+SCOTT                      0\par
+KING                       0\par
+TURNER                     0\par
+ADAMS                      0\par
+\par
+ENAME      INSTR(ENAME,'AR')\par
+---------- -----------------\par
+JAMES                      0\par
+FORD                       0\par
+MILLER                     0\par
+\fs24\par
+\fs26 47. Show the salary of all employees rounding it to the nearest Rs. 1000. For example (3790 will be 4000) \par
+\par
+SELECT ENAME,ROUND (SAL,-3)"ROUND SAL" FROM EMP;\par
+\par
+ENAME       ROUND SAL\par
+---------- ----------\par
+SMITH            1000\par
+ALLEN            2000\par
+WARD             1000\par
+JONES            3000\par
+MARTIN           1000\par
+BLAKE            3000\par
+CLARK            2000\par
+SCOTT            3000\par
+KING             5000\par
+TURNER           2000\par
+ADAMS            1000\par
+\par
+ENAME       ROUND SAL\par
+---------- ----------\par
+JAMES            1000\par
+FORD             3000\par
+MILLER           1000\par
+\fs24\par
+\fs26 48. Show the daily salary of all employees assuming a month has 30 days. \par
+\par
+SELECT ENAME,ROUND(SAL/30)"DAILY SALARY" FROM EMP;\par
+\par
+ENAME      DAILY SALARY\par
+---------- ------------\par
+SMITH                27\par
+ALLEN                53\par
+WARD                 42\par
+JONES                99\par
+MARTIN               42\par
+BLAKE                95\par
+CLARK                82\par
+SCOTT               100\par
+KING                167\par
+TURNER               50\par
+ADAMS                37\par
+\par
+ENAME      DAILY SALARY\par
+---------- ------------\par
+JAMES                32\par
+FORD                100\par
+MILLER               43\par
+\fs24\par
+\fs26 49. Display the name of all employees, and their bonus. Assume each Employee gets a bonus of 20 percent of his salary subject to the Maximum of Rs. 500. \par
+SELECT ENAME, 0.2*SAL"BONUS" FROM EMP WHERE 0.2*SAL<=500;\par
+\par
+ENAME           BONUS\par
+---------- ----------\par
+SMITH             160\par
+ALLEN             320\par
+WARD              250\par
+MARTIN            250\par
+CLARK             490\par
+TURNER            300\par
+ADAMS             220\par
+JAMES             190\par
+MILLER            260\par
+\fs24\par
+\fs26 50. Display the name of all employees, and their bonus. Assume each employee gets a bonus of 20 percent of his salary subject to the Maximum of Rs. 200. \par
+\par
+ SELECT ENAME, 0.2*SAL"BONUS" FROM EMP WHERE 0.2*SAL<=200;\par
+\par
+ENAME           BONUS\par
+---------- ----------\par
+SMITH             160\par
+JAMES             190\par
+\fs24\par
+\fs26 52. For each employee display the number of months passed since the Employee joined the company. \par
+SELECT ENAME ,(SYSDATE-HIREDATE)/30 AS "NO OF MONTHS" FROM EMP;\par
+\par
+ENAME      NO OF MONTHS\par
+---------- ------------\par
+SMITH        461.189353\par
+ALLEN        459.022686\par
+WARD          458.95602\par
+JONES         457.65602\par
+MARTIN       451.689353\par
+BLAKE        456.689353\par
+CLARK        455.389353\par
+SCOTT         384.05602\par
+KING         450.022686\par
+TURNER        452.35602\par
+ADAMS        382.922686\par
+\par
+ENAME      NO OF MONTHS\par
+---------- ------------\par
+JAMES        449.489353\par
+FORD         449.489353\par
+MILLER       447.789353\par
+\fs24\par
+\b\fs26 3) Ordering by Queries\par
+ \b0 55. Display the details of all employees, sorted on the names. \par
+\par
+SELECT *FROM EMP ORDER BY ENAME;\par
+\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100\par
+        20\par
+\par
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300\par
+        30\par
+\par
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850\par
+        30\par
+\par
+\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450\par
+        10\par
+\par
+      7902 FORD       ANALYST         7566 03-DEC-81       3000\par
+        20\par
+\par
+      7900 JAMES      CLERK           7698 03-DEC-81        950\par
+        30\par
+\par
+\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7566 JONES      MANAGER         7839 02-APR-81       2975\par
+        20\par
+\par
+      7839 KING       PRESIDENT            17-NOV-81       5000\par
+        10\par
+\par
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400\par
+        30\par
+\par
+\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7934 MILLER     CLERK           7782 23-JAN-82       1300\par
+        10\par
+\par
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000\par
+        20\par
+\par
+      7369 SMITH      CLERK           7902 17-DEC-80        800\par
+        20\par
+\par
+\par
+    EMPNUM ENAME      JOB              MGR HIREDATE         SAL       COMM\par
+---------- ---------- --------- ---------- --------- ---------- ----------\par
+    DEPTNO\par
+----------\par
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0\par
+        30\par
+\par
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500\par
+        30\par
+\fs24\par
+\fs26 56. Display the name of all employees, based on their tenure, with the oldest employee coming first. \par
+\par
+SELECT ENAME FROM EMP ORDER BY HIREDATE;\par
+\par
+ENAME\par
+----------\par
+SMITH\par
+ALLEN\par
+WARD\par
+JONES\par
+BLAKE\par
+CLARK\par
+TURNER\par
+MARTIN\par
+KING\par
+JAMES\par
+FORD\par
+\par
+ENAME\par
+----------\par
+MILLER\par
+SCOTT\par
+ADAMS\par
+\fs24\par
+\fs26 57. Display the names, job and salary of all employees sorted on jobs and Salary. \par
+\par
+SELECT ENAME,JOB,SAL FROM EMP ORDER BY JOB,SAL;\par
+\par
+ENAME      JOB              SAL\par
+---------- --------- ----------\par
+FORD       ANALYST         3000\par
+SCOTT      ANALYST         3000\par
+SMITH      CLERK            800\par
+JAMES      CLERK            950\par
+ADAMS      CLERK           1100\par
+MILLER     CLERK           1300\par
+CLARK      MANAGER         2450\par
+BLAKE      MANAGER         2850\par
+JONES      MANAGER         2975\par
+KING       PRESIDENT       5000\par
+MARTIN     SALESMAN        1250\par
+\par
+ENAME      JOB              SAL\par
+---------- --------- ----------\par
+WARD       SALESMAN        1250\par
+TURNER     SALESMAN        1500\par
+ALLEN      SALESMAN        1600\par
+\fs24\par
+\fs26 58. Display the names, job and salary of all employees, sorted on jobs and within job, sorted on the descending order of salary. \par
+\par
+ SELECT ENAME,JOB,SAL FROM EMP ORDER BY JOB,SAL DESC;\par
+\par
+ENAME      JOB              SAL\par
+---------- --------- ----------\par
+FORD       ANALYST         3000\par
+SCOTT      ANALYST         3000\par
+MILLER     CLERK           1300\par
+ADAMS      CLERK           1100\par
+JAMES      CLERK            950\par
+SMITH      CLERK            800\par
+JONES      MANAGER         2975\par
+BLAKE      MANAGER         2850\par
+CLARK      MANAGER         2450\par
+KING       PRESIDENT       5000\par
+ALLEN      SALESMAN        1600\par
+\par
+ENAME      JOB              SAL\par
+---------- --------- ----------\par
+TURNER     SALESMAN        1500\par
+MARTIN     SALESMAN        1250\par
+WARD       SALESMAN        1250\par
+\fs24\par
+\fs26 59. Display the names, job and salary of all employees, sorted on Descending order of job and within job, sorted on the descending order of salary. \par
+\par
+SELECT ENAME,JOB,SAL FROM EMP ORDER BY JOB DESC,SAL DESC;\par
+\par
+ENAME      JOB              SAL\par
+---------- --------- ----------\par
+ALLEN      SALESMAN        1600\par
+TURNER     SALESMAN        1500\par
+WARD       SALESMAN        1250\par
+MARTIN     SALESMAN        1250\par
+KING       PRESIDENT       5000\par
+JONES      MANAGER         2975\par
+BLAKE      MANAGER         2850\par
+CLARK      MANAGER         2450\par
+MILLER     CLERK           1300\par
+ADAMS      CLERK           1100\par
+JAMES      CLERK            950\par
+\par
+ENAME      JOB              SAL\par
+---------- --------- ----------\par
+SMITH      CLERK            800\par
+FORD       ANALYST         3000\par
+SCOTT      ANALYST         3000\par
+\fs24\par
+\fs26 60. Display the name, month and year of all employees, sorted on the month of their hire date irrespective of the year. \par
+\par
+ SELECT ENAME,to_char(HIREDATE,'MM') AS MONTH, to_char(HIREDATE,'YY') AS YEAR FROM EMP ORDER BY to_char(HIREDATE,'MM');\par
+\par
+ENAME      MO YE\par
+---------- -- --\par
+MILLER     01 82\par
+ALLEN      02 81\par
+WARD       02 81\par
+JONES      04 81\par
+SCOTT      04 87\par
+ADAMS      05 87\par
+BLAKE      05 81\par
+CLARK      06 81\par
+TURNER     09 81\par
+MARTIN     09 81\par
+KING       11 81\par
+\par
+ENAME      MO YE\par
+---------- -- --\par
+SMITH      12 80\par
+JAMES      12 81\par
+FORD       12 81\par
+\fs24\par
+\fs26 61. Display the name, month and year of joining of all employees, sorted on the month of their hire date, and within that on the year, with the earliest year appearing first. \par
+\par
+ SELECT ENAME,to_char(HIREDATE,'MM') AS MONTH, to_char(HIREDATE,'YY') AS YEAR FROM EMP ORDER BY to_char(HIREDATE,'MM');\par
+\par
+ENAME      MO YE\par
+---------- -- --\par
+MILLER     01 82\par
+ALLEN      02 81\par
+WARD       02 81\par
+JONES      04 81\par
+SCOTT      04 87\par
+ADAMS      05 87\par
+BLAKE      05 81\par
+CLARK      06 81\par
+TURNER     09 81\par
+MARTIN     09 81\par
+KING       11 81\par
+\par
+ENAME      MO YE\par
+---------- -- --\par
+SMITH      12 80\par
+JAMES      12 81\par
+FORD       12 81\par
+\fs24\par
+\fs26\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22\par
+}
+ 
