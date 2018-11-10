@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+
+<html>
+   
+
+<body align="center">
+<video id="video" width="400" controls>
+<source src="html5.mp4" type="video/mp4">
+</video> <br>
+<button class="play" onclick ="play()">play</button>
+ 
+<button class="pause" onclick ="pause()">pause</button>
+<button class="mute" onclick ="mute()">mute</button>
+<button class="unmute" onclick ="unmute()">unmute</button>
+  
+<script>
+  
+var Video = document.getElementById("video");       
+function play() {
+          
+    
+           
+Video.play(); 
+        
+ }
+     
+function pause() {
+Video.pause();
+}
+function mute() {
+Video.muted= true;
+}
+function unmute() {
+Video.muted= false;
+}
+ </script>
+ 
+   
+ 
+    
+    
+        
+    
+            
+ 
+
+          
+ 
+  </body>
+
+</html>
