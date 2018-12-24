@@ -1,0 +1,11 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "description": "file system",
+  "main": "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001bApp\u001b[C\u001b[C\u001b[C\u001b\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Cp.js\u001b[C\u001b[C\u001b[C",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
