@@ -1,0 +1,32 @@
+Enter Name you want to search:<input type="text" [(ngModel)]="name">
+<strong>
+  {{name}}
+</strong><br><br><br>
+<table border="solid" >
+  <thead >
+    <tr border="solid">
+      <td>Emp Id</td>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Phone</td>
+      <td>Salary</td>
+      <td>Appraisal Rating</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="employees.length==0">
+      <td colspan="6">
+        No Records Found.....
+      </td>
+    </tr>
+
+    <tr *ngFor="let emp of employees">
+      <td>{{emp.empId}}</td>
+      <td>{{emp.name | uppercase}}</td>
+      <td>{{emp.email | lowercase}}</td>
+      <td>{{emp.phone |number}}</td>
+      <td>{{emp.salary }}</td>
+      <td>{{emp.appraisalRating}}</td>
+    </tr>
+  </tbody>
+
