@@ -1,0 +1,19 @@
+<!-- <p><input type="text" [value]="name"/></p>
+	<p [ngClass]="{redborder: onTest()}">Is it styled?</p>  
+<p [ngStyle]="{color:'blue'}">Text Color</p>  -->
+
+	<div align="center">  
+   	    <h2>One way binding Example</h2>  
+   	    <p>Hello <span [innerText] = "name" ></span></p>
+    <br/><br/>  
+     <input type = 'text'  [value]="welcomeText" />  
+	
+ 
+       <h2>Two way binding Example</h2>  
+       Enter you Name:  <input [(ngModel)]="enterName"  />  
+      <br/><br/>  
+    	    <span> Welcome <strong>{{enterName}} !  </strong> </span>
+	</div>  
+		<input type="button" on-click='togglevisibilty()' value=" Hide Name">  
+		<div *ngIf='showdiv'> Name is hided</div> {{showdiv==true?sampletext:"Swati"}}  
+	
