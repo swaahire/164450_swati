@@ -1,0 +1,117 @@
+<body id="RegistrationForm">
+<!-- <div class="container-fluid">
+   <div class="row"> 
+      <div class="col-md-4 col-sm-4 col-xs-8"></div>
+    <div class="col-md-4 col-sm-4 col-xs-8"> (ngSubmit)="Submit(form)-->
+    <div id="id01" class="modal">
+                        <span onclick="document.getElementById('id01').style.display='none'" 
+                    class="close" title="Close Modal">&times;</span>
+     <form novalidate  class="modal-content animate" [formGroup]="form" (ngSubmit)="Submit(form)">
+            <div style="text-align:center">
+                    <h2> {{ heading }}</h2>
+                  </div>
+                  <div class="container">
+        <div class="form-group">
+            <label for="userName">userName:</label>
+            <input type="text" class="form-control" placeholder="Enter Name" formControlName="userName" [(ngModel)]="user.userName"></div>
+            <div *ngIf="form.get('userName').invalid && form.get('userName').touched" class="alert alert-danger">
+                <div *ngIf="form.get('userName').hasError('required')"> 
+                    Name is required
+                      </div>
+                      <div *ngIf="form.get('userName').hasError('pattern')"> 
+                          Invalid Name
+                            </div>
+                            <div *ngIf="form.get('userName').hasError('minlength')"> 
+                               name should be more than 5 letters
+                                  </div>
+
+            </div>
+              
+        
+                     <div class="form-group">
+                        <label for="email">Email-Id:</label>
+                        <input type="email" class="form-control" placeholder="Enter email" formControlName="emailId" [(ngModel)]="user.emailId">
+                        </div>
+                        <div *ngIf="form.get('emailId').invalid && form.get('emailId').touched" class="alert alert-danger">
+                            <div *ngIf="form.get('emailId').hasError('required')"> 
+                          email is required
+                            </div>
+                            <div *ngIf="form.get('emailId').hasError('email')"> 
+                                invalid email
+                             </div>
+                         </div>
+
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number:</label>
+                            <input type="text" class="form-control" placeholder="Enter contact number" formControlName="contactNumber" [(ngModel)]="user.contactNumber"> 
+                            </div>
+                            <div *ngIf="form.get('contactNumber').invalid && form.get('contactNumber').touched" class="alert alert-danger">
+                                <div *ngIf="form.get('contactNumber').hasError('required')"> 
+                                    contactNumber is required
+                                      </div>
+                                      <div *ngIf="form.get('contactNumber').hasError('minlength')"> 
+                                         less than 10 digit
+                                            </div>
+                                            <div *ngIf="form.get('contactNumber').hasError('maxlength')"> 
+                                                more than 10 digit
+                                                   </div>
+                                                   <div *ngIf="form.get('contactNumber').hasError('pattern')"> 
+                                                   should be  number format
+                                                         </div>
+
+                                </div>
+
+                         <div class="form-group">
+                                 <label for="password">password:</label>
+                                 <input type="password" class="form-control" placeholder="Enter password" formControlName="password" [(ngModel)]="user.password">
+                                 </div>
+                                        <div *ngIf="form.get('password').invalid && form.get('password').touched" class="alert alert-danger">
+                                            <div *ngIf="form.get('password').hasError('required')"> 
+                                               password is required
+                                                  </div>
+                                                  <div *ngIf="form.get('password').hasError('pattern')"> 
+                                                      need all characters, one symbol,uppercase,lowercase,number
+                                                        </div>
+                                                        <div *ngIf="form.get('password').hasError('minlength')"> 
+                                                           atleast 8 characters
+                                                              </div>
+                                                
+                                          
+                                            </div>
+                        
+                                        <div class="form-group">
+                                            <label for="confirmPassword">Confirm password:</label>
+                                            <input type="password" class="form-control" [class.is-invalid]="form.errors?.misMatch" placeholder="Confirm password"  formControlName="confirmPassword" [(ngModel)]="user.confirmPassword">
+                                            <small class="text-danger" *ngIf="form.errors?.misMatch" >Password do not match</small>    
+                                        </div>
+                                             <div *ngIf="form.get('confirmPassword').invalid && form.get('confirmPassword').touched" class="alert alert-danger">
+                                                <div *ngIf="form.get('confirmPassword').hasError('required')"> 
+                                                  confirmPassword is required
+                                                      </div>
+                                                      <div *ngIf="form.get('confirmPassword').hasError('pattern')"> 
+                                                          need all characters one symbol,uppercase,lowercase,number
+                                                            </div>
+                                                            <div *ngIf="form.get('confirmPassword').hasError('minlength')"> 
+                                                                atleast 8 characters
+                                                                  </div>
+                                                    
+                                                </div>
+                            
+      <div class="checkbox">
+          <label>
+           <input type="checkbox">Remember me
+          </label>
+         </div>
+         <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid">Submit</button>
+                  </div>
+     </form>
+    <div class="col-md-4 col-sm-4 col-xs-8"></div>
+     </div>
+</body>
+<!-- <ul class="list-group">
+  <li *ngFor="let user of userlist" class="=list-group-item">
+   {{user.userName }} 
+  </li>
+</ul> -->
+
+  

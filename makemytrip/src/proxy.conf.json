@@ -1,0 +1,6 @@
+{
+	"/api": {
+		"target": "http://localhost:2007/Mytrip/users",
+		"secure": false
+    }
+}
