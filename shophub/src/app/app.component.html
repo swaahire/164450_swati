@@ -1,0 +1,95 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<html>
+<head>
+<title>Shop-Hub</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #777;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar {
+      color: #d5d5d5 !important;
+  }
+  .navbar-brand a{ 
+  font-family: "Monotype Corsiva",Cursive,serif;
+   color: red;
+  }
+   .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .btn{
+  padding:20px;
+  font-size: 14px;}
+ 
+</style>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+   
+    <div class="navbar-header">
+     
+       <img class="image" src="images/shopping-bags-market-isolated-icon-vector-11223623.jpg" align="left" width="75" height="50">
+      <a class="navbar-brand" href="#myPage"><font face="Impact" size="6" color="red">Shop-Hub</font></a>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+   
+      <ul class="nav navbar-nav navbar-left">
+         <li><a class="active" href="#myPage"><font color="red">HOME</font></a></li>       
+        
+        
+        <li><a class="active" href="#ABOUT"><font color="red">ABOUT</font></a></li>
+      
+        <li>
+          <font color="black">
+          <form action="/ShopHub/MainServlet" method="post">
+		<input type="hidden" name="checkForm"  value="welcome"></input>
+		 <button class="btn"><font color="red">PRODUCT</font></button>
+         </a>
+         
+        </li>
+		</ul>
+     <img class="image" src="images/shopping-cart-button.jpg" align="right" width="75" height="50">
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span><font color="red"> Sign Up</font></a></li>
+      <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> <font color="red">Login</font></a></li>
+      </ul>
+      
+    </div>   
+  </div>
+</nav>
+</body>
+</html>
+
+<router-outlet></router-outlet>
